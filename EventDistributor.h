@@ -8,10 +8,9 @@ public:
 
 class EventDistributor {
 public:
-	EventDistributor(sf::Event::EventType type) : handledType(type) {}
-	void registerUser(EventUser* user);
+	EventDistributor() {};
+	void registerUser(EventUser& user);
 	void distribute(const sf::Event& e);
 private:
-	sf::Event::EventType handledType;
 	std::vector<EventUser*> users;
 };

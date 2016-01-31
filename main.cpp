@@ -1,24 +1,26 @@
 #include <SFML/Graphics.hpp>
 #include "Blob.h"
-#include "EventUser.h"
+#include "EventHandler.h"
+
+class WindowCloser : public EventUser {
+public:
+	WindowCloser(sf::RenderWindow& window) : window(&window) {};
+	virtual void invoke(const sf::Event& e) { window->close(); }
+private:
+	sf::RenderWindow* window;
+};
+
 int main() {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
-	EventDistributor mouseMovedDistributor(sf::Event::MouseMoved);
+	EventHandler eventHandler;
 	Blob blob;
-	mouseMovedDistributor.registerUser(&blob);
+	WindowCloser windowCloser(window);
+	eventHandler.registerUser(sf::Event::Closed, windowCloser);
+	eventHandler.registerUser(sf::Event::MouseMoved, blob);
 	while (window.isOpen()) {
 		sf::Event event;
 		while (window.pollEvent(event)) {
-			switch (event.type) {
-			case sf::Event::Closed:
-				window.close();
-				break;
-			case sf::Event::MouseMoved:
-				mouseMovedDistributor.distribute(event);
-				break;
-			default:
-				break;
-			}
+			eventHandler.process(event);
 		}
 		window.clear();
 		window.draw(blob);

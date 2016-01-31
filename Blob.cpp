@@ -17,13 +17,11 @@ Blob::~Blob()
 }
 
 void Blob::invoke(const sf::Event& e) {
-	position.x = e.mouseMove.x;
-	position.y = e.mouseMove.y;
+	position.x = static_cast<float>(e.mouseMove.x);
+	position.y = static_cast<float>(e.mouseMove.y);
 }
 
 void Blob::update(const sf::Event& event) {
-	position.x = event.mouseMove.x;
-	position.y = event.mouseMove.y;
 }
 
 void Blob::draw(sf::RenderTarget& target, sf::RenderStates states) const {

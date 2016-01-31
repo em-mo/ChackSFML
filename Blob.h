@@ -1,8 +1,7 @@
 #pragma once
 #include <SFML\System\Vector2.hpp>
 #include <SFML\Graphics\Drawable.hpp>
-#include "EventUser.h"
-
+#include "EventDistributor.h"
 
 class Blob : public sf::Drawable, public EventUser
 {

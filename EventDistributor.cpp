@@ -1,8 +1,8 @@
 #pragma once
-#include "EventUser.h"
+#include "EventDistributor.h"
 
-void EventDistributor::registerUser(EventUser* user) {
-	users.push_back(user);
+void EventDistributor::registerUser(EventUser& user) {
+	users.push_back(&user);
 }
 
 void EventDistributor::distribute(const sf::Event& e) {

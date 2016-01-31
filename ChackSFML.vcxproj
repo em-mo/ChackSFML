@@ -85,12 +85,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Blob.cpp" />
+    <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="EventDistributor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Blob.h" />
-    <ClInclude Include="EventUser.h" />
+    <ClInclude Include="EventDistributor.h" />
+    <ClInclude Include="EventHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
