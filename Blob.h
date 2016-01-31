@@ -1,12 +1,10 @@
 #pragma once
 #include <SFML\System\Vector2.hpp>
 #include <SFML\Graphics\Drawable.hpp>
+#include "EventUser.h"
 
-namespace sf {
-	class Event;
-}
 
-class Blob : public sf::Drawable
+class Blob : public sf::Drawable, public EventUser
 {
 public:
 	Blob();
@@ -15,7 +13,7 @@ public:
 
 	void update(const sf::Event& event);
 	virtual void Blob::draw(sf::RenderTarget& target, sf::RenderStates states) const;
-
+	virtual void invoke(const sf::Event& e);
 private:
 	sf::Vector2f position;
 };

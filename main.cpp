@@ -1,8 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include "Blob.h"
+#include "EventUser.h"
 int main() {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
+	EventDistributor mouseMovedDistributor(sf::Event::MouseMoved);
 	Blob blob;
+	mouseMovedDistributor.registerUser(&blob);
 	while (window.isOpen()) {
 		sf::Event event;
 		while (window.pollEvent(event)) {
@@ -11,7 +14,7 @@ int main() {
 				window.close();
 				break;
 			case sf::Event::MouseMoved:
-				blob.update(event);
+				mouseMovedDistributor.distribute(event);
 				break;
 			default:
 				break;

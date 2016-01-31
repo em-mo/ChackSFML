@@ -16,13 +16,18 @@ Blob::~Blob()
 {
 }
 
+void Blob::invoke(const sf::Event& e) {
+	position.x = e.mouseMove.x;
+	position.y = e.mouseMove.y;
+}
+
 void Blob::update(const sf::Event& event) {
 	position.x = event.mouseMove.x;
 	position.y = event.mouseMove.y;
 }
 
 void Blob::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-	const float RADIUS = 40;
+	const float RADIUS = 20;
 	const sf::Vector2f centerOffset(-RADIUS, -RADIUS);
 	sf::CircleShape shape(RADIUS);
 	shape.setFillColor(sf::Color::Green);

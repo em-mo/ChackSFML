@@ -21,9 +21,15 @@
     <ClCompile Include="Blob.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EventDistributor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Blob.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventUser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
