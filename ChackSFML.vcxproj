@@ -84,13 +84,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Blob.cpp" />
+    <ClCompile Include="ActorFactory.cpp" />
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Collidable.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="EventDistributor.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Blob.h" />
+    <ClInclude Include="ActorFactory.h" />
+    <ClInclude Include="Actor.h" />
+    <ClInclude Include="Collidable.h" />
     <ClInclude Include="EventDistributor.h" />
     <ClInclude Include="EventHandler.h" />
   </ItemGroup>

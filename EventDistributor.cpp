@@ -6,6 +6,7 @@ void EventDistributor::registerUser(EventUser& user) {
 }
 
 void EventDistributor::distribute(const sf::Event& e) {
-	for (auto u : users)
+	for (auto u : users) {
 		u->invoke(e);
+	}
 }

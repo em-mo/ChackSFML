@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include "Blob.h"
+#include "Actor.h"
 #include "EventHandler.h"
-
+#include "ActorFactory.h"
 class WindowCloser : public EventUser {
 public:
 	WindowCloser(sf::RenderWindow& window) : window(&window) {};
@@ -10,12 +10,12 @@ private:
 	sf::RenderWindow* window;
 };
 
+ActorFactory actorFactory;
 int main() {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
 	EventHandler eventHandler;
-	Blob blob;
-	WindowCloser windowCloser(window);
-	eventHandler.registerUser(sf::Event::Closed, windowCloser);
+	Actor blob = actorFactory.blob();
+	eventHandler.registerUser(sf::Event::Closed, WindowCloser(window));
 	eventHandler.registerUser(sf::Event::MouseMoved, blob);
 	while (window.isOpen()) {
 		sf::Event event;
